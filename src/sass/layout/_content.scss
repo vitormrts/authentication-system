@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: rgb(245, 245, 245);
+
+    height: 90%;
+    width: 90%;
+
+    max-height: 800px;
+    max-width: 800px;
+
+    border-radius: 20px;
+
+    &__button {
+        cursor: pointer;
+        background-color: #593DE3;
+
+        color: white;
+
+        transition: 0.5s;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+}

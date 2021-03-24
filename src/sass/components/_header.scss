@@ -1,0 +1,25 @@
+.content__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    & > div {
+        background-color: #593de3;
+        padding: 20px;
+        border-radius: 50%;
+        margin-bottom: 30px;
+
+        img {
+            width: 80px;
+        }
+    }
+
+    h2 {
+        font-weight: bold;
+        text-align: center;
+        font-size: 2.4rem;
+
+        margin-bottom: 30px;
+    }
+}

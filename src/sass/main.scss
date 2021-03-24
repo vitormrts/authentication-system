@@ -1,5 +1,21 @@
-@import '../sass/components/test';
+@import '../sass/components/header';
+@import '../sass/components/form';
 
-h1 {
-    color: red;
+@import '../sass/layout/container';
+@import '../sass/layout/content';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Roboto', sans-serif;
+    color: #3a3a3a;
+
+    @media (max-width: 600px) {
+        font-size: 83%;
+    }
 }
+
+
+
