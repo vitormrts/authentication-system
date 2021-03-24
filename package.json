@@ -1,0 +1,16 @@
+{
+  "name": "login-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vitormrts/login-system",
+  "author": "Vitor Martins Cruz <vitormartinscruz.dev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "sass": "node-sass src/sass/main.scss src/css/style.css -w",
+    "dev": "live-server --port=3000 --entry-file=src/index.html & yarn sass"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "node-sass": "^5.0.0"
+  }
+}
