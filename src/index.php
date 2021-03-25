@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+
+    <style>
+        <?php 
+        include "src/css/style.css";
+        ?>
+    </style>
+
+    <script src="https://kit.fontawesome.com/33621f7366.js" crossorigin="anonymous"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
     <title>Log In</title>
@@ -13,7 +21,9 @@
     <div class="container">
         <div class="content">
             <header class="content__header">
-                <div><img src="src/assets/user.svg" alt=""></div>
+                <div>   
+                    <i class="fas fa-user fa-5x"></i>
+                </div>
                 <h2>Sign In</h2>
             </header>
 
@@ -25,7 +35,7 @@
                     <input class="content__button" type="submit" value="Sign In">
 
                     <span>
-                        <img src="src/assets/warning.svg" alt="">
+                    <i class="fas fa-exclamation-triangle"></i>
                         Invalid attempt
                     </span>
                 </form>

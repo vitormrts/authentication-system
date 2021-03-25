@@ -27,7 +27,6 @@
             width: 230px;
         }
 
-
         &:not(:first-child) {
             margin-top: 20px;
         }
@@ -44,9 +43,9 @@
         font-weight: bold;
         font-size: 1.1rem;
 
-        img {
-            width: 24px;
-            margin-right: 10px;
+        i {
+            color: #FF6D6D;
+            margin-right: 12px;
         }
     }
 }
