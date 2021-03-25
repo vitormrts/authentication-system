@@ -10,9 +10,20 @@ class Core
 
     private $user;
 
+    private $error;
+
     public function __construct()
     {
         $this->user = $_SESSION['usr'] ?? null;
+        $this->error = $_SESSION['msg_error'] ?? null;
+
+        if (isset($this->error)) {
+            if ($this->error['count'] === 0) {
+                $_SESSION['msg_error']['count'] ++;
+            } else {
+                unset($_SESSION['msg_error']);
+            }
+        }
     }
 
     public function start($request)
@@ -26,8 +37,6 @@ class Core
             if (isset($this->url[0]) && !empty($this->url[0])) {
                 $this->method = $this->url[0];
                 array_shift($this->url);
-
-                echo $this->url[0];
 
                 if (isset($this->url[0]) && !empty($this->url[0])) {
                     $this->params = $this->url;

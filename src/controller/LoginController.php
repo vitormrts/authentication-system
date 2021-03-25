@@ -6,10 +6,14 @@ class LoginController
     {
         $loader = new \Twig\Loader\FilesystemLoader('src/view');
 
-        $twig = new \Twig\Environment($loader);
-        $template = $twig->load('login.html');
+        $twig = new \Twig\Environment($loader, [
+            'auto_reload' => true
+        ]);
+        $template = $twig->load('login/login.html');
 
-        return $template->render();
+        $parameters['error'] = $_SESSION['msg_error'] ?? null;
+
+        return $template->render($parameters);
     }
 
     public function check()
@@ -26,6 +30,8 @@ class LoginController
             header('Location: http://localhost/login-system/dashboard');
             
         } catch (\Exception $e) {
+            $_SESSION['msg_error'] = array('msg' => $e->getMessage(), 'count' => 0);
+
             header('Location: http://localhost/login-system/');
         }
     }

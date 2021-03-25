@@ -26,9 +26,10 @@ class User
             $result = $stmt->fetch();
 
             if ($result['password'] === $this->password) {
-                $_SESSION['usr'] = $result['id'];
-
-                echo "CORRETO";
+                $_SESSION['usr'] = array(
+                    'id_user' => $result['id'],
+                    'name_user' => $result['name'],
+                );
 
                 return true;
             }
