@@ -1,8 +1,9 @@
 <?php
 
-
-class LoginController {
-    public function index() {
+class LoginController
+{
+    public function index()
+    {
         $loader = new \Twig\Loader\FilesystemLoader('app/view');
 
         $twig = new \Twig\Environment($loader);
@@ -10,6 +11,17 @@ class LoginController {
 
         return $template->render();
     }
-}
 
-?>
+    public function check()
+    {
+        $user = new User();
+
+        try {
+            $user->setEmail($_POST['email']);
+            $user->setPassword($_POST['password']);
+            $user->validateLogin();
+        } catch (\Exception $e) {
+            header('Location: http://localhost/login-system/');
+        }
+    }
+}

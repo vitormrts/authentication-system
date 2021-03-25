@@ -38,7 +38,5 @@ class Core
         }
 
         return call_user_func(array(new $this->controller, $this->method), $this->params);
-
-        // echo var_dump($this->controller, $this->method, $this->params);
     }
 }
