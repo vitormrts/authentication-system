@@ -4,7 +4,7 @@ class LoginController
 {
     public function index()
     {
-        $loader = new \Twig\Loader\FilesystemLoader('app/view');
+        $loader = new \Twig\Loader\FilesystemLoader('src/view');
 
         $twig = new \Twig\Environment($loader);
         $template = $twig->load('login.html');
