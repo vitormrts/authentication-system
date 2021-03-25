@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+
+require_once 'app/core/Core.php';
+
+$core = new Core;
+$core->start($_GET);
+
+?>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +37,7 @@
             </header>
 
             <main class="content__main">
-                <form>
+                <form method="POST" action="/login/check">
                     <input type="email" name="" id="" placeholder="Insert your email">
                     <input type="password" name="" id="" placeholder="Insert your password">
 
@@ -43,4 +52,4 @@
         </div>
     </div>
 </body>
-</html>
+</html> -->

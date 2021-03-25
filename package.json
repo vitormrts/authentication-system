@@ -8,7 +8,7 @@
   "scripts": {
     "sass": "node-sass src/sass/main.scss src/css/style.css -w",
     "dev": "live-server --port=3000 --entry-file=src/index.php & yarn sass",
-    "php": "php -S localhost:8080 src/index.php & yarn sass"
+    "php": "php -S localhost:8080 index.php & yarn sass"
   },
   "devDependencies": {
     "live-server": "^1.2.1",
