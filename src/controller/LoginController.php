@@ -19,7 +19,12 @@ class LoginController
         try {
             $user->setEmail($_POST['email']);
             $user->setPassword($_POST['password']);
+
             $user->validateLogin();
+
+            
+            header('Location: http://localhost/login-system/dashboard');
+            
         } catch (\Exception $e) {
             header('Location: http://localhost/login-system/');
         }
