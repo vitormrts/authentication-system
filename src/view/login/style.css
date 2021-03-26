@@ -100,9 +100,26 @@
   transition: 0.5s; 
 }
 
-  .content__button:hover {
-    filter: brightness(0.8); 
-  }
+.content__button:hover {
+  filter: brightness(0.8); 
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer span {
+
+}
+
+footer a {
+  text-decoration: none;
+  margin-left: 10px;
+
+  color: #593DE3;
+}
 
 * {
   margin: 0;

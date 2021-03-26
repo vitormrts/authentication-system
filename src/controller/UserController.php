@@ -1,6 +1,6 @@
 <?php
 
-class LoginController
+class UserController
 {
     public function index()
     {
@@ -16,7 +16,7 @@ class LoginController
         return $template->render($parameters);
     }
 
-    public function check()
+    public function signIn()
     {
         $user = new User();
 
@@ -31,8 +31,15 @@ class LoginController
             
         } catch (\Exception $e) {
             $_SESSION['msg_error'] = array('msg' => $e->getMessage(), 'count' => 0);
+            
 
             header('Location: http://localhost/login-system/');
         }
+    }
+
+    public function signUp() {
+        $user = new User();
+
+        header('Location: http://localhost/login-system/signup');
     }
 }

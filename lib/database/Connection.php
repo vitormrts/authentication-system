@@ -6,8 +6,11 @@ abstract class Connection {
     private static $connection;
 
     public static function getConnection() {
-        if (!self::$connection) {
-            self::$connection = new \PDO('mysql: host=localhost; dbname=system_login', 'root', 'Levelup@777');
+        try {
+            self::$connection = new \PDO('mysql: host=HOST; dbname=system_login', USER, PASSWORD);
+        }
+        catch (\PDOException $e) {
+            die("It was not possible to connect to the database: " . $e->getMessage());
         }
 
         return self::$connection;

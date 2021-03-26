@@ -43,6 +43,11 @@ class User
         // se nao, redireicionar para a pag inicial
     }
 
+    public function createUser()
+    {
+        return true;
+    }
+
     public function setEmail($email)
     {
         $this->email = $email;
