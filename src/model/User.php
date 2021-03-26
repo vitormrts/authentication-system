@@ -9,7 +9,7 @@ class User
     private $email;
     private $password;
 
-    public function validateLogin()
+    public function validateUser()
     {
         $connection = Connection::getConnection(); // conectar no banco de dados
 
@@ -35,7 +35,7 @@ class User
             }
         }
 
-        throw new \Exception('Login invalido.');
+        throw new \Exception('It was not possible login.');
 
         // conferir se a senha esta correta
 
@@ -45,7 +45,23 @@ class User
 
     public function createUser()
     {
-        return true;
+        $connection = Connection::getConnection();
+
+        $sql = 'INSERT INTO user VALUES (DEFAULT, :name, :email, :password)';
+
+        $stmt = $connection->prepare($sql);
+
+        if ($this->name != '' && $this->email != '' && $this->password != '') {
+            $stmt->bindValue(':name', $this->name);
+            $stmt->bindValue(':email', $this->email);
+            $stmt->bindValue(':password', $this->password);
+    
+            if ($stmt->execute()) {
+                return true;
+            }
+        }
+
+        throw new \Exception('It was not possible to create a user.');
     }
 
     public function setEmail($email)

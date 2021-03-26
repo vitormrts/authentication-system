@@ -1,19 +1,21 @@
 <?php
 
-class UserController
+
+class SigninController
 {
     public function index()
     {
         $loader = new \Twig\Loader\FilesystemLoader('src/view');
 
         $twig = new \Twig\Environment($loader, [
-            'auto_reload' => true
+            'auto_reload' => true,
         ]);
-        $template = $twig->load('login/login.html');
 
-        $parameters['error'] = $_SESSION['msg_error'] ?? null;
+        $template = $twig->load('signin/signin.html');
 
-        return $template->render($parameters);
+        $this->parameters['error'] = $_SESSION['msg_error'] ?? null;
+
+        return $template->render($this->parameters);
     }
 
     public function signIn()
@@ -24,22 +26,15 @@ class UserController
             $user->setEmail($_POST['email']);
             $user->setPassword($_POST['password']);
 
-            $user->validateLogin();
+            $user->validateUser();
 
-            
             header('Location: http://localhost/login-system/dashboard');
-            
+
         } catch (\Exception $e) {
             $_SESSION['msg_error'] = array('msg' => $e->getMessage(), 'count' => 0);
-            
 
-            header('Location: http://localhost/login-system/');
+            header('Location: http://localhost/login-system');
         }
     }
 
-    public function signUp() {
-        $user = new User();
-
-        header('Location: http://localhost/login-system/signup');
-    }
 }

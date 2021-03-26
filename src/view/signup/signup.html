@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="http://localhost/login-system/src/view/signup/style.css">
+
+    <script src="https://kit.fontawesome.com/33621f7366.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Sign Up</title>
 </head>
+
 <body>
-    <h1>SIGN UP</h1>
+    <div class="container">
+        <div class="content">
+            <header class="content__header">
+                <div>
+                    <i class="fas fa-user fa-5x"></i>
+                </div>
+                <h2>Sign Up</h2>
+            </header>
+
+            <main class="content__main">
+                <form method="POST" action="http://localhost/login-system/signup/signup">
+                    <input type="text" name="name" value="" placeholder="Insert your name">
+                    <input type="email" name="email" value="" placeholder="Insert your email">
+                    <input type="password" name="password" value="" placeholder="Insert your password">
+
+                    <input class="content__button" type="submit" value="Sign Up">
+                    <span>
+                </form>
+            </main>
+
+            <footer>
+                <span>Already have an account?</span>
+                <a href="http://localhost/login-system/">Sign In</a>
+            </footer>
+        </div>
+    </div>
 </body>
+
 </html>

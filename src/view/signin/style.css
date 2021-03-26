@@ -110,15 +110,13 @@ footer {
   align-items: center;
 }
 
-footer span {
-
-}
-
 footer a {
   text-decoration: none;
   margin-left: 10px;
 
   color: #593DE3;
+
+  font-weight: bold;
 }
 
 * {

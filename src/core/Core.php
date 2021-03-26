@@ -19,7 +19,7 @@ class Core
 
         if (isset($this->error)) {
             if ($this->error['count'] === 0) {
-                $_SESSION['msg_error']['count'] ++;
+                $_SESSION['msg_error']['count']++;
             } else {
                 unset($_SESSION['msg_error']);
             }
@@ -52,12 +52,13 @@ class Core
                 $this->method = 'index';
             }
         } else {
-            $pg_permission = ['UserController'];
+            $pg_permission = ['SigninController', 'SignupController'];
 
             if (!isset($this->controller) || !in_array($this->controller, $pg_permission)) {
-                $this->controller = 'UserController';
+                $this->controller = 'SigninController';
                 $this->method = 'index';
             }
+
         }
 
         return call_user_func(array(new $this->controller, $this->method), $this->params);
