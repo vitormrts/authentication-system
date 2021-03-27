@@ -13,6 +13,8 @@ class DashboardController
         $template = $twig->load('dashboard/dashboard.html');
         $parameters['name_user'] = $_SESSION['usr']['name_user']; 
 
+        
+
         return $template->render($parameters);
     }
 

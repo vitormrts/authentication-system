@@ -39,10 +39,7 @@ class SignupController
 
             $user->createUser();
 
-            $this->parameters['registered'] = true;
-
             header('Location: http://localhost/login-system/signup/success');
-            // echo "REGISTRADO";
         } catch (\Exception $e) {
             echo $e;
 
