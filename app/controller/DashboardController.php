@@ -5,17 +5,8 @@ class DashboardController
 {
     public function index()
     {
-        $loader = new \Twig\Loader\FilesystemLoader('app/view');
-
-        $twig = new \Twig\Environment($loader, [
-            'auto_reload' => true
-        ]);
-        $template = $twig->load('dashboard.html');
-        $parameters['name_user'] = $_SESSION['usr']['name_user']; 
-
-        
-
-        return $template->render($parameters);
+        $view = new View();
+        return $view->renderView('dashboard', 'username');
     }
 
     public function logout()

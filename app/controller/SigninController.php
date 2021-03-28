@@ -1,21 +1,11 @@
 <?php
 
-
 class SigninController
 {
     public function index()
     {
-        $loader = new \Twig\Loader\FilesystemLoader('app/view');
-
-        $twig = new \Twig\Environment($loader, [
-            'auto_reload' => true,
-        ]);
-
-        $template = $twig->load('signin.html');
-
-        $this->parameters['error'] = $_SESSION['msg_error'] ?? null;
-
-        return $template->render($this->parameters);
+        $view = new View();
+        return $view->renderView('signin', 'error');
     }
 
     public function signIn()

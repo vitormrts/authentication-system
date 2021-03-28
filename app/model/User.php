@@ -1,6 +1,6 @@
 <?php
 
-use lib\database\Connection;
+use app\config\Connection;
 
 class User
 {

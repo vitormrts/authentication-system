@@ -4,28 +4,14 @@ class SignupController
 {
     public function index()
     {
-        $loader = new \Twig\Loader\FilesystemLoader('app/view');
-
-        $twig = new \Twig\Environment($loader, [
-            'auto_reload' => true,
-        ]);
-
-        $template = $twig->load('signup.html');
-
-        return $template->render();
+        $view = new View();
+        return $view->renderView('signup');
     }
 
     public function success()
     {
-        $loader = new \Twig\Loader\FilesystemLoader('app/view');
-
-        $twig = new \Twig\Environment($loader, [
-            'auto_reload' => true,
-        ]);
-
-        $template = $twig->load('success.html');
-
-        return $template->render();
+        $view = new View();
+        return $view->renderView('success');
     }
 
     public function signUp() 
