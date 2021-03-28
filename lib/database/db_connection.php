@@ -2,6 +2,11 @@
 
 namespace lib\database; 
 
+define('HOST', 'localhost');
+define('DB', 'system_login');
+define('USER', 'root');
+define('PASSWORD', 'Levelup@777');
+
 abstract class Connection {
     private static $connection;
 

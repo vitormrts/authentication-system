@@ -5,12 +5,12 @@ class DashboardController
 {
     public function index()
     {
-        $loader = new \Twig\Loader\FilesystemLoader('src/view');
+        $loader = new \Twig\Loader\FilesystemLoader('app/view');
 
         $twig = new \Twig\Environment($loader, [
             'auto_reload' => true
         ]);
-        $template = $twig->load('dashboard/dashboard.html');
+        $template = $twig->load('dashboard.html');
         $parameters['name_user'] = $_SESSION['usr']['name_user']; 
 
         

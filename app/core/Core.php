@@ -56,10 +56,7 @@ class Core
 
             if (!isset($this->controller) || !in_array($this->controller, $pg_permission)) {
                 $this->controller = 'SigninController';
-                $this->method = 'index';
-                
-            } else if ($this->controller === 'SignupController' && $this->method === 'success') {
-                header("Location: http://localhost/login-system");
+                $this->method = 'index';   
             }
 
         }

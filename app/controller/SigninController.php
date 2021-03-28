@@ -5,13 +5,13 @@ class SigninController
 {
     public function index()
     {
-        $loader = new \Twig\Loader\FilesystemLoader('src/view');
+        $loader = new \Twig\Loader\FilesystemLoader('app/view');
 
         $twig = new \Twig\Environment($loader, [
             'auto_reload' => true,
         ]);
 
-        $template = $twig->load('signin/signin.html');
+        $template = $twig->load('signin.html');
 
         $this->parameters['error'] = $_SESSION['msg_error'] ?? null;
 
