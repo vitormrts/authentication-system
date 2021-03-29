@@ -1,8 +1,12 @@
 <?php
 
+// Fill in the information according to your database
+$localhost = 'host_example';
+$name = 'name_example';
+$user = 'user_example';
+$password = 'password_example';
 
-
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'system_login');
-define('DB_USER', 'root');
-define('DB_PASSWORD', 'Levelup@777');
+putenv('DB_HOST=' . $localhost);
+putenv('DB_NAME=' . $name);
+putenv('DB_USER=' . $user);
+putenv('DB_PASS=' . $password);
