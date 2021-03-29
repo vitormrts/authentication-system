@@ -69,6 +69,13 @@
                     <span>Already have an account?</span>
                     <a href="http://localhost/login-system/">Sign In</a>
                 </footer>
+
+                {% if error != '' %}
+                    <span>
+                    <i class="fas fa-exclamation-triangle"></i>
+                        It was not possible to register
+                    </span> 
+                {% endif %}
                 
             {% endif %}
         </div>

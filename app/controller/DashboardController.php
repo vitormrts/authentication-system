@@ -6,7 +6,7 @@ class DashboardController
     public function index()
     {
         $view = new ViewHelper();
-        return $view->renderView('dashboard', 'username');
+        return $view->renderView('dashboard', false, true);
     }
 
     public function logout()

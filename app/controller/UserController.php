@@ -2,33 +2,14 @@
 
 class UserController
 {
+    private $user;
+    private $error;
     // private $page = 'signin';
 
     public function index()
     {
         $view = new ViewHelper();
         return $view->renderView('auth', 'error');
-    }
-
-
-    // public function signUp()
-    // {
-    //     $view = new ViewHelper();
-    //     return $view->renderView('auth', 'error', 'signup');
-        
-    //     // header('Location: http://localhost/login-system');
-    // }
-
-    public function renderSignIn()
-    {
-        $view = new ViewHelper();
-        return $view->renderView('signin', 'error');
-    }
-
-    public function success()
-    {
-        $view = new ViewHelper();
-        return $view->renderView('success');
     }
 
     public function signUp() 
@@ -43,8 +24,7 @@ class UserController
 
             $user->createUser();
 
-            return $this->success();
-
+            return $view->renderView('success');
         } catch (\Exception $e) {
             return $view->renderView('auth', 'error', 'signup');
         }

@@ -20,11 +20,12 @@ class User
         $stmt->bindValue(':email', $this->email);
         $stmt->execute();
 
-        echo $stmt->rowCount();
-
         if ($stmt->rowCount()) {
             $result = $stmt->fetch();
 
+            // conferir se a senha esta correta
+            // se tudo isso tiver ok, criaremos uma session e direcionaremos o para um dashboard
+            // se nao, redireicionar para a pag inicial
             if ($result['password'] === $this->password) {
                 $_SESSION['usr'] = array(
                     'id_user' => $result['id'],
@@ -36,11 +37,30 @@ class User
         }
 
         throw new \Exception('It was not possible login.');
+    }
 
-        // conferir se a senha esta correta
+    public function isEmptyField() {
+        if ($this->name != '' && $this->email != '' && $this->password != '') {
+            return false;
+        }
 
-        // se tudo isso tiver ok, criaremos uma session e direcionaremos o para um dashboard
-        // se nao, redireicionar para a pag inicial
+        return true;
+    }
+
+    public function emailAlreadyExists() {
+        $connection = Connection::getConnection();
+
+        $sql = 'SELECT * FROM user WHERE email = :email';
+
+        $stmt = $connection->prepare($sql);
+        $stmt->bindValue(':email', $this->email);
+        $stmt->execute();
+
+        if ($stmt->rowCount() == 0) {
+            return false;
+        }
+
+        return true;
     }
 
     public function createUser()
@@ -51,17 +71,17 @@ class User
 
         $stmt = $connection->prepare($sql);
 
-        if ($this->name != '' && $this->email != '' && $this->password != '') {
+        if (!$this->isEmptyField() && !$this->emailAlreadyExists()) {
             $stmt->bindValue(':name', $this->name);
             $stmt->bindValue(':email', $this->email);
             $stmt->bindValue(':password', $this->password);
-    
+
             if ($stmt->execute()) {
                 return true;
             }
-        }
+        } else throw new \Exception('It was not possible to create a user.');
 
-        throw new \Exception('It was not possible to create a user.');
+        
     }
 
     public function setEmail($email)
