@@ -10,9 +10,8 @@ require_once 'app/config/db_config.php';
 require_once 'app/core/Core.php';
 require_once 'vendor/autoload.php';
 require_once 'app/config/db_connection.php';
-require_once 'app/helpers/render.php';
-require_once 'app/controller/SignupController.php';
-require_once 'app/controller/SigninController.php';
+require_once 'app/helpers/Helper.php';
+require_once 'app/controller/UserController.php';
 require_once 'app/controller/DashboardController.php';
 require_once 'app/model/User.php';
 

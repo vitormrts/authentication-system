@@ -1,10 +1,10 @@
 <?php
 
-class View
+class ViewHelper
 {
     private $parameters = array();
 
-    public function renderView($file, $parameters = false) {
+    public function renderView($file, $parameters = false, $page = 'signin') {
         $loader = new \Twig\Loader\FilesystemLoader('app/view');
     
         $twig = new \Twig\Environment($loader, [
@@ -18,11 +18,12 @@ class View
         } else if ($parameters === 'username') {
             $this->parameters['name_user'] = $_SESSION['usr']['name_user']; 
         }
+
+        $this->parameters['page'] = $page;
     
         return $template->render($this->parameters);
     }
 }
-
 
 
 

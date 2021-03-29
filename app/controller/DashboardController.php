@@ -5,7 +5,7 @@ class DashboardController
 {
     public function index()
     {
-        $view = new View();
+        $view = new ViewHelper();
         return $view->renderView('dashboard', 'username');
     }
 

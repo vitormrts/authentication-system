@@ -52,15 +52,19 @@ class Core
                 $this->method = 'index';
             }
         } else {
-            $pg_permission = ['SigninController', 'SignupController'];
+            $pg_permission = ['UserController'];
 
             if (!isset($this->controller) || !in_array($this->controller, $pg_permission)) {
-                $this->controller = 'SigninController';
+                $this->controller = 'UserController';
                 $this->method = 'index';   
-            }
+            } 
+            // else if ($this->controller === 'UserController' && $this->method === 'signin') {
+            //     $this->controller = 'DashboardController';
+            //     $this->method = '';
+            // }
 
         }
-
+        
         return call_user_func(array(new $this->controller, $this->method), $this->params);
     }
 }
