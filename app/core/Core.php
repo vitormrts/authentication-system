@@ -1,5 +1,6 @@
 <?php
 
+
 class Core
 {
     private $url;
@@ -39,7 +40,7 @@ class Core
                 array_shift($this->url);
 
                 if (isset($this->url[0]) && !empty($this->url[0])) {
-                    $this->params = $this->url;
+                    $_GET['params'] = $this->url;
                 }
             }
         }
@@ -58,13 +59,8 @@ class Core
                 $this->controller = 'UserController';
                 $this->method = 'index';   
             } 
-            // else if ($this->controller === 'UserController' && $this->method === 'signin') {
-            //     $this->controller = 'DashboardController';
-            //     $this->method = '';
-            // }
-
         }
-        
+
         return call_user_func(array(new $this->controller, $this->method), $this->params);
     }
 }

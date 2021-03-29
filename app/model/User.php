@@ -39,12 +39,20 @@ class User
         throw new \Exception('It was not possible login.');
     }
 
-    public function isEmptyField() {
-        if ($this->name != '' && $this->email != '' && $this->password != '') {
-            return false;
+    public function getEmptyField() {
+        $empty = array();
+
+        if (strlen($this->name) == 0) {
+            $empty.array_push($empty, $this->name);
+        }
+        if (strlen($this->email) == 0) {
+            $empty.array_push($empty, $this->email);
+        }
+        if (strlen($this->password) == 0) {
+            $empty.array_push($empty, $this->password);
         }
 
-        return true;
+        return $empty;
     }
 
     public function emailAlreadyExists() {
@@ -71,7 +79,9 @@ class User
 
         $stmt = $connection->prepare($sql);
 
-        if (!$this->isEmptyField() && !$this->emailAlreadyExists()) {
+        $emptyField = $this->getEmptyField();
+
+        if (count($emptyField) == 0 && !$this->emailAlreadyExists()) {
             $stmt->bindValue(':name', $this->name);
             $stmt->bindValue(':email', $this->email);
             $stmt->bindValue(':password', $this->password);
@@ -79,9 +89,16 @@ class User
             if ($stmt->execute()) {
                 return true;
             }
-        } else throw new \Exception('It was not possible to create a user.');
-
+        }
         
+        if (count($emptyField) != 0) {
+            throw new \Exception("One or more fields are empty.");
+        }
+        else if ($this->emailAlreadyExists()) {
+            throw new \Exception("Email already exists.");
+        }
+
+        throw new \Exception('It was not possible to create a user.');
     }
 
     public function setEmail($email)

@@ -1,15 +1,21 @@
 <?php
 
+
 class UserController
 {
-    private $user;
+    private $page;
     private $error;
-    // private $page = 'signin';
+
+    public function __construct()
+    {  
+        $this->page = $_GET['params'][0] ?? 'signin';
+        $this->error = $_SESSION['msg_error'] ?? NULL;
+    }
 
     public function index()
     {
         $view = new ViewHelper();
-        return $view->renderView('auth', 'error');
+        return $view->renderView('auth', 'error', $this->page);
     }
 
     public function signUp() 
@@ -26,7 +32,12 @@ class UserController
 
             return $view->renderView('success');
         } catch (\Exception $e) {
-            return $view->renderView('auth', 'error', 'signup');
+            $_SESSION['msg_error'] = array(
+                'msg' => $e->getMessage(), 
+                'count' => 0
+            );
+            
+            header('Location: http://localhost/login-system/user/index/signup');
         }
     }
 
@@ -44,7 +55,10 @@ class UserController
             header('Location: http://localhost/login-system/dashboard');
 
         } catch (\Exception $e) {
-            $_SESSION['msg_error'] = array('msg' => $e->getMessage(), 'count' => 0);
+            $_SESSION['msg_error'] = array(
+                'msg' => $e->getMessage(), 
+                'count' => 0
+            );
 
             header('Location: http://localhost/login-system');
         }

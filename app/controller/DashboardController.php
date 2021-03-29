@@ -1,12 +1,13 @@
 <?php
 
 
+
 class DashboardController
 {
     public function index()
     {
         $view = new ViewHelper();
-        return $view->renderView('dashboard', false, true);
+        return $view->renderView('dashboard', 'username', true);
     }
 
     public function logout()
