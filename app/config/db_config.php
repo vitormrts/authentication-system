@@ -1,10 +1,10 @@
 <?php
 
 // Fill in the information according to your database
-$localhost = 'localhost';
-$name = 'system_login';
-$user = 'root';
-$password = 'Levelup@777';
+$localhost = '';
+$name = '';
+$user = '';
+$password = '';
 
 putenv('DB_HOST=' . $localhost);
 putenv('DB_NAME=' . $name);
