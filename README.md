@@ -44,9 +44,34 @@
 * ✔️ MySQL
 
 ## ℹ️ How To Use
+### 1. Getting Started
 To modify (locally) this project, you will need [PHP](https://www.php.net/downloads.php) and [MySQL](https://www.mysql.com/downloads/) installed on your computer.
 
-> PS: It is necessary to create a MySQL database to run the project locally. For this, I recommend that you use [PhpMyAdmin](https://www.phpmyadmin.net/).
+### 2. Configuring Your Database
+With these tools in hand, it is necessary to create a database. To do this, follow the steps below:
+```sh
+# Open your MySQL
+$ mysql -u root -p
+
+# Create a database
+mysql> CREATE DATABASE name_of_database DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+# Change to created database
+mysql> USE name_of_database
+
+# Create user table
+mysql> CREATE TABLE IF NOT EXISTS user (
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(100) NOT NULL,
+    email varchar(50) NOT NULL,
+    password varchar(50) NOT NULL,
+    PRIMARY KEY (id)
+) DEFAULT CHARSET = utf8;
+```
+
+After this, you will need to connect the database by changing the data in [db_config.php](https://github.com/vitormrts/authentication-system/blob/master/app/config/db_config.php).
+
+### 3. Cloning And Runnig Project
 
 ```sh
 # Clone this repository in a location where the local server can run it.
@@ -56,9 +81,7 @@ $ git clone https://github.com/vitormrts/authentication-system
 $ cd authentication-system
 ```
 
-After this, you will need to connect the database by changing the data in [db_config.php](https://github.com/vitormrts/authentication-system/blob/master/app/config/db_config.php).
-
-Done! Now you can open the app, for example on address http://localhost/authentication-system.
+Done! Now you can open the app.
 
 ## 🤝 Contributing
 
