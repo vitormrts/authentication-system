@@ -71,7 +71,7 @@ mysql> CREATE TABLE IF NOT EXISTS user (
 
 After this, you will need to connect the database by changing the data in [db_config.php](https://github.com/vitormrts/authentication-system/blob/master/app/config/db_config.php).
 
-### 3. Cloning And Runnig Project
+### 3. Cloning And Runnig The Project
 
 ```sh
 # Clone this repository in a location where the local server can run it.
