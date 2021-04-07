@@ -61,10 +61,10 @@ mysql> USE name_of_database
 
 # Create user table
 mysql> CREATE TABLE IF NOT EXISTS user (
-    id int NOT NULL AUTO_INCREMENT,
-    name varchar(100) NOT NULL,
-    email varchar(50) NOT NULL,
-    password varchar(50) NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
     PRIMARY KEY (id)
 ) DEFAULT CHARSET = utf8;
 ```
